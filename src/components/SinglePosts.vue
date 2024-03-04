@@ -19,9 +19,9 @@ export default {
             if (this.post.cover_image != null){
                 image = '/storage/' + this.post.cover_image;
             }
-            else{
-                image = '';
-            }
+            // else{
+            //     // image = '';
+            // }
 
             return `${this.store.baseUrl}${image}`;
         }
@@ -34,8 +34,8 @@ export default {
             <img class="card-img-top " :src="getImage()" alt="">
             <div class="card-body">
                 <h5 class="card-title">{{ post.name }}</h5>
-                <!-- <p class="card-text">{{ project.description }}</p> -->
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p class="card-text">{{ post.description }}</p>
+                <a href="#" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>

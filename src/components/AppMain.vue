@@ -11,25 +11,47 @@ export default {
         return {
             store,
             posts: [],
-           
+            currentPage: 1,
+            lastPage: null
         }
     },
     created() {
         this.getPosts();
     },
     methods: {
-        getPosts() {
-            axios.get(`${this.store.baseUrl}/api/posts`).then((response) => {
-                this.posts = response.data.results;
-                
+        getPosts(page_number) {
+            axios.get(`${this.store.baseUrl}/api/posts`, {
+                params: {
+                    page: page_number
+                }
+            }).then((response) => {
+                this.posts = response.data.results.data;
+                this.currentPage = response.data.results.current_page;
+                this.lastPage = response.data.results.last_page;
             })
         }
     },
 }
 </script>
 <template lang="">
-    <div class="d-flex flex-wrap">
-        <SinglePosts v-for="post, index in posts" key="index" :post="post" />
+    <div class="container">
+        <div class="row">
+            <div class="d-flex flex-wrap">
+                <SinglePosts v-for="post, index in posts" key="index" :post="post" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class=" pagination d-flex justify-content-center ">
+                    <li>
+                        <button :class="currentPage == 1 ? 'disabled' : ''" @click="getPosts(currentPage - 1)" class="btn btn-primary"> <- </button>
+                    </li>
+                    <li>
+                        <button :class="currentPage == lastPage ? 'disabled' : ''" @click="getPosts(currentPage + 1)" class="btn btn-primary"> -> </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <style scoped lang="scss">
