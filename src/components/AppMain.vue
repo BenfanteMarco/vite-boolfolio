@@ -1,11 +1,17 @@
 <script>
 import axios from 'axios';
 import { store } from '../store.js';
+import SinglePosts from './SinglePosts.vue';
 
 export default {
+    components: {
+        SinglePosts
+    },
     data() {
         return {
             store,
+            posts: [],
+           
         }
     },
     created() {
@@ -14,15 +20,16 @@ export default {
     methods: {
         getPosts() {
             axios.get(`${this.store.baseUrl}/api/posts`).then((response) => {
-                console.log(response.data.results);
+                this.posts = response.data.results;
+                
             })
         }
     },
 }
 </script>
 <template lang="">
-    <div>
-        
+    <div class="d-flex flex-wrap">
+        <SinglePosts v-for="post, index in posts" key="index" :post="post" />
     </div>
 </template>
 <style scoped lang="scss">
