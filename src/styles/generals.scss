@@ -1,1 +1,41 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+// HEADER
+.bg-header{
+    background-color: rgb(32, 22, 88);
+}
+
+.h-header{
+    height: 75px;
+}
+
+.main-title{
+    color: white;
+}
+
+.hight-75{
+    height: 75px;
+}
+
+// MAIN
+.welcome-title{
+    margin-bottom: 0;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+// PROJECTS
+
+.btn-personal{
+    background-color: rgb(29, 36, 202);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 2px;
+    text-decoration: none;
+    &:hover{
+        background-color: rgb(73, 79, 252);
+        color: white;
+    }
+}

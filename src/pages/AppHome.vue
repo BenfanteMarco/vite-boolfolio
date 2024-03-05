@@ -4,9 +4,15 @@ export default {
 }
 </script>
 <template lang="">
-    <div>
-        <h2>Welcome!</h2>
-    </div>
+    <main class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class=" h-main welcome-title justify-content-center d-flex align-items-center">Welcome!</h2>
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
 <style lang="scss" scoped>
     @use '../styles/generals.scss' as *;

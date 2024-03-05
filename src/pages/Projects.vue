@@ -34,25 +34,27 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container">
-        <div class="row">
-            <div class="d-flex flex-wrap">
-                <SinglePosts v-for="post, index in posts" key="index" :post="post" />
+    <main class="">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex flex-wrap">
+                    <SinglePosts v-for="post, index in posts" key="index" :post="post" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class=" pagination d-flex justify-content-center ">
+                        <li>
+                            <button :class="currentPage == 1 ? 'disabled' : ''" @click="getPosts(currentPage - 1)" class=" btn-personal"> <- </button>
+                        </li>
+                        <li>
+                            <button :class="currentPage == lastPage ? 'disabled' : ''" @click="getPosts(currentPage + 1)" class=" btn-personal"> -> </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <ul class=" pagination d-flex justify-content-center ">
-                    <li>
-                        <button :class="currentPage == 1 ? 'disabled' : ''" @click="getPosts(currentPage - 1)" class="btn btn-primary"> <- </button>
-                    </li>
-                    <li>
-                        <button :class="currentPage == lastPage ? 'disabled' : ''" @click="getPosts(currentPage + 1)" class="btn btn-primary"> -> </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    </main>
 </template>
 <style scoped lang="scss">
 
