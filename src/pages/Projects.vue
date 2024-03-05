@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import { store } from '../store.js';
-import SinglePosts from './SinglePosts.vue';
+import SinglePosts from '../components/SinglePosts.vue';
 
 export default {
     components: {
@@ -58,4 +58,4 @@ export default {
 
     @use '../styles/generals.scss' as *;
 
-</style>
+</style>./AppMain.vue/index.js
